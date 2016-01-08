@@ -56,7 +56,7 @@ Pressly allows your to host a Hub as a path on an existing Website such as: `htt
 location /hub {
     rewrite ^([^.]*[^/])$ $1/ permanent;
 }
-location ^~ /hubs/north-york/ {
+location ^~ /hubs/ {
     proxy_set_header Host www.yoursite.com;
     proxy_pass https://hub.pressly.com;
 }
