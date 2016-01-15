@@ -47,8 +47,8 @@ Pressly allows your to host a Hub as a path on an existing Website such as: `htt
 ### Setup
 
 1. Login to your Pressly account, open your hub from the navigation menu. Once you’re on the hub, select the “gear” icon and click “Settings”.
-2. Put `www.yoursite.com` in the “Custom Domain” field, and `/hub` in the “Host Path” field,  and click “Save Changes”.
-3. Configure a new *backend* on the Webserver of `www.yoursite.com`. The configuration must *reverse proxy* all requests to `/hub*` of your Webserver to `”https://hub.pressly.com”`. Tip: make sure to forward the HTTP `HOST` request header to the Pressly backend.
+2. Put `www.yoursite.com` in the “Custom Domain” field, and `/youramazinghub` in the “Host Path” field,  and click “Save Changes”.
+3. Configure a new *backend* on the Webserver of `www.yoursite.com`. The configuration must *reverse proxy* all requests to `/youramazinghub*` of your Webserver to `”https://hub.pressly.com”`. Tip: make sure to forward the HTTP `HOST` request header with the full request path to the Pressly backend.
 
 #### Example Nginx backend setup
 
