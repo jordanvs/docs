@@ -53,11 +53,27 @@ Pressly allows your to host a Hub as a path on an existing Website such as: `htt
 #### Example Nginx backend setup
 
 ```
-location /hub {
+location /youramazinghub {
     rewrite ^([^.]*[^/])$ $1/ permanent;
 }
-location ^~ /hubs/ {
+location ^~ /youramazinghub/ {
     proxy_set_header Host www.yoursite.com;
     proxy_pass https://hub.pressly.com;
 }
+```
+
+#### Example Apache backend setup
+
+```
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+
+UseCanonicalName On
+SSLProxyEngine On
+ProxyRequests Off
+ProxyPreserveHost On
+
+ProxyPass /youramazinghub/ https://hub.pressly.com/youramazinghub/
+ProxyPassReverse /youramazinghub/ https://hub.pressly.com/youramazinghub/
 ```
