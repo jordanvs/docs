@@ -57,8 +57,10 @@ location /youramazinghub {
     rewrite ^([^.]*[^/])$ $1/ permanent;
 }
 location ^~ /youramazinghub/ {
-    proxy_set_header Host www.yoursite.com;
-    proxy_pass https://hub.pressly.com;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP       $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for
+    proxy_pass $scheme://hub.pressly.com;
 }
 ```
 
@@ -74,6 +76,12 @@ SSLProxyEngine On
 ProxyRequests Off
 ProxyPreserveHost On
 
-ProxyPass /youramazinghub/ https://hub.pressly.com/youramazinghub/
-ProxyPassReverse /youramazinghub/ https://hub.pressly.com/youramazinghub/
+RewriteCond "%{HTTPS}" =off
+RewriteRule "." "-" [E=protocol:http]
+RewriteCond "%{HTTPS}" =on
+RewriteRule "." "-" [E=protocol:https]
+
+RewriteRule "^/youramazinghub(.*)" "%{ENV:protocol}://hub.pressly.com/youramazinghub$1" [P]
+ProxyPassReverse  "/youramazinghub/" "http://hub.pressly.com/youramazinghub/"
+ProxyPassReverse  "/youramazinghub/" "https://hub.pressly.com/youramazinghub/"
 ```
