@@ -42,7 +42,7 @@ Note: as your DNS updates propagate, you may have to wait a few minutes until yo
 
 NOTE: These instructions are a bit more advanced require the help of your Website administrator of `yoursite.com`.
 
-Pressly allows your to host a Hub as a path on an existing Website such as: `http://www.yoursite.com/hub`
+Pressly allows your to host a Hub as a path on an existing Website such as: `http://www.yoursite.com/youramazinghub`
 
 ### Setup
 
