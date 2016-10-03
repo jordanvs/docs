@@ -14,7 +14,7 @@ Pressly supports hosting a hub like any traditional website on the base of a dom
 
 1. Ensure `yourhub.com` domain is registered
 2. Update the `DNS` (Domain Name Server) settings of `yourhub.com` to:
-	- `yourhub.com A record` to `23.235.33.163`
+	- `yourhub.com A record` to `52.205.11.92`
 	- `www.yourhub.com CNAME record` to ‘hub.pressly.com’
 3. Login to your Pressly account, open your hub from the navigation menu. Once you’re on the hub, select the “gear” icon and click “Settings”.
 4. Put `www.yourhub.com` in the “Custom Domain” field and click “Save Changes”.
